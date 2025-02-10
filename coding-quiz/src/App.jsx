@@ -6,17 +6,17 @@ import ContactList from "./components/ContactList";
 const mockData = [
   {
     id: 0,
-    name: '이정환',
+    name: "이정환",
     email: "king199777@gmail.com",
   },
   {
     id: 1,
-    name: '손흥민',
+    name: "손흥민",
     email: "hmson@gmail.com",
   },
   {
     id: 2,
-    name: '아이유',
+    name: "아이유",
     email: "Iu@gmail.com",
   },
 ];
@@ -41,9 +41,16 @@ function App() {
       type: "CREATE",
       data: {
         id: idRef.current++,
-        name : name,
+        name: name,
         email: email,
       },
+    });
+  };
+
+  const onDelete = (targetId) => {
+    dispatch({
+      type: "DELETE",
+      targetId: targetId,
     });
   };
 
@@ -54,7 +61,7 @@ function App() {
         <ContactEditor onCreate={onCreate} />
       </section>
       <section>
-        <ContactList contactInfo={contactInfo} />
+        <ContactList contactInfo={contactInfo} onDelete={onDelete} />
       </section>
     </div>
   );
