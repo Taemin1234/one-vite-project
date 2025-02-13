@@ -1,6 +1,9 @@
 import "./ContactItem.css";
-
-export default function ContactItem({ id, name, email, onDelete }) {
+import { memo, useContext } from 'react'
+import { ContactDispatchContext  } from "../App";
+ 
+function ContactItem({ id, name, email }) {
+  const { onDelete } = useContext(ContactDispatchContext);
   const onClickDelete = () => {
     onDelete(id);
   };
@@ -13,3 +16,5 @@ export default function ContactItem({ id, name, email, onDelete }) {
     </div>
   );
 }
+
+export default memo(ContactItem)
