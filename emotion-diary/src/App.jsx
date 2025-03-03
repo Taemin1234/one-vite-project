@@ -79,6 +79,7 @@ function App() {
       return;
     }
 
+    // 지금까지 가장 높은 id를 찾아 다음 다이어리의 id 값 설정
     let maxId = 0;
     parsedData.forEach((item) => {
       if (Number(item.id) > maxId) {
@@ -141,6 +142,7 @@ function App() {
     });
   };
 
+  // 로딩전에 랜더링이 되면 데이터가 저장되지 않아서 로딩처리 해줘야함
   if (isLoading) {
     return <div>데이터 로딩 중입니다.</div>;
   }
