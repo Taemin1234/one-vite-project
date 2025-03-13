@@ -46,5 +46,8 @@
   font-size: 18px;
 }
 .diaryItem .button-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   min-width: 70px;
 }
